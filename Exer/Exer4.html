@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let [x,y,z] = [1,2]
+	// console.log(x,y,z)
+
+	let [x,y=22,z=33] = [1,2]
+	console.log(x,y,z)
+
+	// let [foo,[[bar],baz]] = [1,[[2],3]];
+	// console.log(foo,bar,baz);
+
+	// let {foo:baz} = {foo:"aaa",bar:"bbb"};
+	// console.log(baz);
+
+	let {foo,bar,baz='ccc'} = {foo:"aaa",bar:"bbb"};
+	console.log(foo,bar,baz);
+
+
+	// let o1 = {x:1,y:2,z:3};
+	// let o2 = {x:2,a:true,b:false};
+	// Object.assign(o1,o2);
+	// console.log(o1);
+
+	let o1 = {x:1,y:2};
+	let o2 = {x:2,a:true,b:{
+		z: 100
+	}};
+	Object.assign(o1,o2);
+	console.log(o1);
+	console.log(o2);
+
+	let obj = {
+		x: [1,2,3],
+		y: [4,5],
+		z: [6,7,8,9,10]
+	};
+
+	let arr = Object.values(obj)[1];
+		let sum = Object.values(obj)[2].reduce((current,next) => {
+			return current+next;
+		},0)
+
+	console.log(sum);
+
+</script>
+</html>

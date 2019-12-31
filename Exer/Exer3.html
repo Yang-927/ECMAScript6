@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [1,undefined,4,'',2,NaN,null,3,false];
+	let reg = /\d/;
+	let arr1 = [];
+	arr.forEach(v => {
+		if(reg.test(v)){
+			arr1.push(v*v);
+		}
+	})
+	console.log(arr1);
+
+
+	let PRODUCTS = [
+		{
+			id: 100001,
+			name: '牛仔裤',
+			price: 99,
+			hot: false,
+			stock: 1013
+		},{
+			id: 100002,
+			name: '羽绒服',
+			price: 498,
+			hot: true,
+			stock: 1976
+		},{
+			id: 100003,
+			name: '女士毛衣',
+			price: 76,
+			hot: true,
+			stock: 3021
+		},{
+			id: 100004,
+			name: '男士衬衣',
+			price: 88,
+			hot: false,
+			stock: 2244
+		},{
+			id: 100005,
+			name: '女士外套',
+			price: 276,
+			hot: true,
+			stock: 1208
+		}
+	]
+
+
+	let priceArr = [];
+	PRODUCTS.forEach(v => priceArr.push(v.price));
+	console.log(priceArr)
+
+
+	let arr3 = [67,42,79,54,36,93];
+	let ret = arr3.every(v => v%2 === 1)
+	let ret1 = arr3.some(v => v%2 === 0)
+	console.log(ret,ret1)
+	let str = arr3.flat();
+	console.log(str)
+
+	let max = (arg) => Math.max(...arg);
+	console.log(max(arr3))
+
+	let getMaxAndMin = (x) => {
+		return {
+			Max: Math.max(...x),
+			Min: Math.min(...x)
+		}
+	}
+
+	console.log(getMaxAndMin(arr3));
+</script>
+</html>

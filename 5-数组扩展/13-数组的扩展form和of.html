@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="yang">1</div>
+	<div class="yang">2</div>
+	<div class="yang">3</div>
+	<div class="yang">4</div>
+	<div class="yang">5</div>
+</body>
+<script>
+	let divs = document.getElementsByClassName('yang');
+	console.log(divs);
+	console.log(Array.from(divs))
+	Array.from(divs).forEach(div => {
+		console.log(div.innerHTML)
+	})
+
+
+	console.log(Array.of(1,2,3,4,5));
+</script>
+</html>

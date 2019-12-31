@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的简写</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let name = 'Durant';
+	let obj = {
+		name,
+		age: 32,
+		study(){
+			console.log(`${this.name},${this.age}`)
+		}
+	}
+	console.log(obj);
+	obj.study();
+</script>
+</html>

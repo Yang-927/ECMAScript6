@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="">yangbrin</a>
+</body>
+<script>
+	const bookArr=[ 
+			{ id:1, bookName:"三国演义" },
+			{ id:2, bookName:"水浒传" },
+			{ id:3, bookName:"红楼梦" },
+			{ id:4, bookName:"西游记" }
+		];
+	for (var i = 0; i < bookArr.length; i++) {
+		if(bookArr[i].id == 3){
+			console.log(bookArr[i].bookName);
+		}
+	}
+	console.log(bookArr);
+
+	let iam = "我是";
+	let name = "狗蛋";
+	let sex = "a";
+	let hobby = "吹牛";
+	let str  = "大家好,"+iam+name+",性别"+sex+",爱好"+hobby+ ",多指教。";
+	let str1 = `大家好，${iam+name},性别${sex == 'm' ? '男' : (sex == 'f' ? '女' : '未知') }，爱好${hobby}，多指教`;
+	console.log(str1);
+
+	function Mult(...x){
+		let num = 1;
+		for (var i = 0; i < x.length; i++) {
+			num *= x[i]
+		}
+		return num;
+	}
+	console.log(Mult(1,3,6,4,65));
+
+	let Test = (x = 3.0) => Number.isInteger(x);
+	console.log(Test(6.5));
+
+	// 知识扩充
+	function fn(x,y){
+		return function(){
+			return x+y;
+		}
+	}
+	console.log(fn(1,2)())
+
+	function css(el,...args) {
+		if(args.length === 1) {
+			if(typeof (args[0]) === 'string') {
+				return getComputedStyle(el,null)[args[0]];
+			}else if(typeof args[0] === 'object') {
+				for(let k in args[0]) {
+					el.style[k] = args[0][k];
+				}
+			}
+		}else if(args.length === 2) {
+			el.style[args[0]] = args[1];
+		}
+	}
+
+	let oA = document.querySelector('a');
+	css(oA,{
+		display: 'block',
+		background: '#333',
+		width: '30px'
+	})
+	console.log(css(oA,'width'))
+</script>
+</html>

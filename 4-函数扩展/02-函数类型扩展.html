@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let fn = () => {
+
+	// };
+
+	let tol = a => {
+		alert(a)
+	}
+	// tol('Curry')
+
+	let bar = (x,y) => alert(x ** y);
+	
+	// bar(3,2)
+
+	// let pow = (x,y) => {
+	// 	return x ** y
+	// }
+	// console.log(pow(2,4))
+
+	let pow = (x,y) => x ** y;
+	console.log(pow(2,4))
+
+	function fn(){
+		console.log(arguments)
+	}
+	new fn()
+
+	let fn1 = () => {
+		console.log(arguments)
+	}
+	// fn1()
+
+	function isNumber(x){
+		if(isNaN(x)){
+			alert(x+'不是数字')
+		}else{
+			alert(x+'是数字')
+		}
+	}
+	isNumber(58)
+
+	function isNumber1(x){
+		var reg = /^\d+$/;
+		return reg.test(x)
+	}
+	console.log(isNumber1('a3653a3'))
+</script>
+</html>

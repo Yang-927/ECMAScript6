@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s = Symbol();
+	console.log(typeof s);	// symbol
+	console.log(s);			// Symbol()
+
+
+	let s1 = Symbol('index');
+	let s2 = Symbol('foo');
+
+	console.log(s1);
+	console.log(s2);
+
+	let obj = {
+		[Symbol('a')]: 1,
+		[Symbol('a')]: 2
+	}
+	console.log(obj);
+</script>
+</html>

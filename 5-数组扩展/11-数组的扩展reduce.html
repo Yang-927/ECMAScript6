@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [1,2,3,4];
+	// let sum = arr.reduce((current,next) => current + next);
+	// console.log(sum);
+	let sum = arr.reduce((current,next) => {
+		return current + next;
+	},0);
+	console.log(sum);
+
+
+	let array = [
+		{
+			id: 1,
+			name: "西瓜",
+			unit: 12,
+			count: 10
+		},{
+			id: 2,
+			name: "苹果",
+			unit: 5.3,
+			count: 4
+		},{
+			id: 3,
+			name: "梨",
+			unit: 7.8,
+			count: 5
+		},{
+			id: 4,
+			name: "桃",
+			unit: 8.7,
+			count: 2
+		}
+	]
+
+	let total = array.reduce((init,next) => {
+		return init + next.unit * next.count;
+	},0)
+
+	console.log(total)
+	let array = ['html','html','css','vue','html'];
+	let obj = array.reduce((init,next) => {
+		init[next] = ++init[next] || 1;
+		return init;
+	},{});
+	console.log(obj);
+</script>
+</html>

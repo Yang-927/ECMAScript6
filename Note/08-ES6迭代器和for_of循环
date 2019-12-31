@@ -1,0 +1,119 @@
+### 迭代器：
+
+迭代就是循环；
+
+```js
+let arr = [1,2,3,4,5];
+for (var i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}
+```
+
+迭代：执行和for循环类型，支部过普通for循环是通过下标取值的，迭代是通过指针
+
+**如何检测一个对象是否可以迭代：**
+
+​	访问该对象的Symbol.iterator属性，如果结果是一个函数，表名该对象可以迭代，否则不可迭代；
+
+**如何获取可迭代对象的元素：**
+
+1. 获取迭代器的对象：
+
+	```js
+	let iter = obj[Symbol.iterator];
+	```
+
+2. 通过调用迭代器对象next方法：
+
+	第一次调用next方法，访问的是可迭代对象的第一个元素
+	第一次调用next方法，访问的是可迭代对象的第一个元素
+	以此类推
+
+	每次next返回的是一个对象，该对象包含两个属性，一个是value，一个是done；value表示此次迭代取出的元素，done表示这个对象是否迭代完成，没有完成done值为false，否则为true；
+
+	```javascript
+	let arr1 = [1,2];
+	console.log(arr[Symbol.iterator])
+	let iter = arr1[Symbol.iterator]();
+	if(iter){
+	    // 开始迭代。index = 0 ;
+	    console.log(iter.next());	// arr1[0]
+	    console.log(iter.next());	// arr1[1]
+	    console.log(iter.next());	// arr1[2]
+	    console.log(iter.next());	// arr1[3]
+	}
+	```
+
+**原理：**
+
+```js
+let iter1 = arr[Symbol.iterator]();
+while(true){
+    let {value,done} = iter1.next();
+    if(!done){
+        console.log(value);
+    }else{
+        break;
+    }
+}
+```
+
+**ES6新增：**
+
+ES6新增for...of循环
+
+```js
+let arr = [1,2,3,4,5,6,7];
+for(let item of arr){
+    console.log(item);
+}
+
+let str = "Curry";
+console.log(str[Symbol.iterator]);
+for(let item of str){
+    console.log(item);
+}
+```
+
+**for...of遍历节点集合：**
+
+```js
+let liList = document.getElementsByTagName('li');
+console.log(liList[Symbol.iterator])
+for(let item of liList){
+	item.style.color = '#f00';
+}
+```
+
+**对象不可迭代：**
+
+```js
+const obj = {
+    name: 'YangBinran',
+    age: 18,
+    sex: 'male'
+}
+console.log(obj[Symbol.iterator]);	// undefined
+```
+
+**for...of遍历arguments**
+
+```js
+function fn(){
+    for(let item of arguments){
+        console.log(item);		// a b c d e f g
+    }
+}
+fn('a','b','c','d','e','f','g');
+```
+
+
+
+**for...of循环：**
+
+1. 为所有可迭代对象提供一个统一的遍历手段
+2. 与下标没有关系
+3. 本质就是在调用next函数
+
+
+

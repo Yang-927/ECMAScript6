@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var x = 1;
+	const OBJ = {
+		x: 2,
+		fn: function() {
+			console.log(x);		
+			console.log(this.x++);
+		}
+	};
+	OBJ.fn();			// 2 2
+	console.log(OBJ.x);		// 2
+	let fn = OBJ.fn();
+	console.log(++window.x);
+	console.log(x);
+</script>
+</html>

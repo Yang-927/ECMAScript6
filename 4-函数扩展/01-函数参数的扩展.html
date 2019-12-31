@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// function add (...args){
+	// 	console.log(args)
+	// }
+	// add(1,2,3,4)
+	function add (...args){
+		console.log(...args)
+	}
+	add(1,2,3,4);
+
+	function getMaxAndMin(...args){
+		return {
+			Max:Math.max(...args),
+			Min:Math.min(...args)
+		}
+	}
+	console.log(getMaxAndMin(56,23,43,53,61,5,2,1,23,112));
+	let arr3 = [67,42,79,54,36,93];
+	console.log(getMaxAndMin(arr3));
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let set = new Set('Curry');
+	// console.log(set.size)	// 4;
+
+	// 方法：
+
+	let set = new Set();
+	// 添加
+	set.add('Y');
+	set.add('A');
+	set.add('N');
+	set.add('G');
+	set.add('Y');
+	set.add('A');
+	console.log(set);
+
+	// 删除
+	set.delete('G');
+	console.log(set);
+
+	// 不可修改
+	
+	// 查
+	console.log(set.has('Y'));	// true
+	// 清空
+	set.clear();
+	console.log(set);
+
+	set.add('Y');
+	set.add('A');
+	set.add('N');
+	set.add('G');
+	set.add('Y');
+	set.add('A');
+
+
+	set.forEach(item => {
+		console.log(item);
+	})
+	console.log(set[Symbol.iterator])
+</script>
+</html>

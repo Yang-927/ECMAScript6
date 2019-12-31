@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+</body>
+<script>
+	// let arr = [1,2,3,4,5];
+	// for (var i = 0; i < arr.length; i++) {
+	// 	console.log(arr[i]);
+	// }
+
+	// console.log(Symbol.iterator);
+	// let s = Symbol('Symbol.iterator');
+	// console.log(s)
+
+
+	// let arr1 = [1,2];
+	// console.log(arr[Symbol.iterator])
+	// let iter = arr1[Symbol.iterator]();
+	// if(iter){
+	// 	// 开始迭代。index = 0 ;
+	// 	console.log(iter.next());	// arr1[0]
+	// 	console.log(iter.next());	// arr1[1]
+	// 	console.log(iter.next());	// arr1[2]
+	// 	console.log(iter.next());	// arr1[3]
+	// }
+
+	// let iter1 = arr[Symbol.iterator]();
+
+	// while(true){
+	// 	let {value,done} = iter1.next();
+	// 	if(!done){
+	// 		console.log(value);
+	// 	}else{
+	// 		break;
+	// 	}
+	// }
+	
+
+	let arr = [1,2,3,4,5,6,7];
+	for(let item of arr){
+		console.log(item);
+	}
+
+
+	let str = "Curry";
+
+	console.log(str[Symbol.iterator]);
+
+	for(let item of str){
+		console.log(item);
+	}
+
+	let liList = document.getElementsByTagName('li');
+	console.log(liList[Symbol.iterator])
+	for(let item of liList){
+		item.style.color = '#f00';
+	}
+
+	const obj = {
+		name: 'YangBinran',
+		age: 18,
+		sex: 'male'
+	}
+	console.log(obj[Symbol.iterator]);	// undefined
+
+
+	function fn(){
+		for(let item of arguments){
+			console.log(item)
+		}
+	}
+	fn('a','b','c','d','e','f','g');
+
+
+	let array = [11,22,33,44,55];
+	for(let item of array){
+		if(item % 2 !== 0){
+			console.log(item)
+		}
+	}
+</script>
+</html>

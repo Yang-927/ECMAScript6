@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">Submit</button>
+</body>
+<script>
+	function fn(){
+		console.log(this);
+	}
+	window.fn();	// window
+
+	let obj = {
+		fn:function(){
+			console.log(this);
+		}
+	}
+	obj.fn();
+	let oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		console.log(this)
+	}
+</script>
+</html>
