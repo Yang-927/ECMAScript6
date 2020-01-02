@@ -47,5 +47,27 @@
 		console.log(item);
 	})
 	console.log(set[Symbol.iterator])
+
+
+	let arr = [1,2,3,4,5,6];
+
+	arr.push(7);
+
+	for(let item of arr){
+		console.log(item);
+	}
+
+	let set5 = new Set(arr);
+	console.log(set5);
+
+
+	let name = 'web';
+	let age = 10;
+	let str = '你好，${name} 已经 ${age}岁了';
+
+	str = str.replace(/\$\{([a-z]+)\}/g,(match,$1) => {
+		return eval($1);
+	})
+	console.log(str);
 </script>
 </html>
