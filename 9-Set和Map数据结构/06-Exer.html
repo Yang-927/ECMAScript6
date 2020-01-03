@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		#box {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 200px;
+			height: 100px;
+			margin: auto;
+			line-height: 100px;
+			text-align: center;
+			font-size: 22px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+	<script>
+		//创建WeakSet，存储3个手机对象，然后对集合做增加，删除，包含操作
+		let ws = new WeakSet();
+		let m1 = {
+			brand:"HuaWei",
+			color:'blue',
+			price:3000
+		};
+		let m2 = {
+			brand:"XiaoMi",
+			color:'red',
+			price:2000
+		};
+		let m3 = {
+			brand:"Vivo",
+			color:'black',
+			price:4000
+		};
+		ws.add(m1);
+		ws.add(m2);
+		ws.add(m3);
+		// ws.delete(m1);
+		// console.log(ws);
+		// console.log(ws.has(m3));
+		const ARRAY = [3,6,4,11,8,1];
+		/*for(let i = 0; i < ARRAY.length; i++) {
+			for(let j = i + 1; j < ARRAY.length; j++) {
+				if(ARRAY[i] + ARRAY[j] === 12) {
+					console.log(`i = ${i},j = ${j}`);
+				}
+			}
+		}*/
+		const NAMES = [
+			"狗蛋",
+			"大锤",
+			"幺妹",
+			"大头",
+			"李彦宏",
+			"马云",
+			"程维",
+			"马化腾",
+			"王健林",
+			"许家印",
+			"丁磊",
+			"周鸿祎",
+			"张朝阳",
+			"雷军"
+		];
+		let flag = false;
+		let timer = null;
+		document.onclick = function() {
+			if(!flag) {
+				timer = setInterval(() => {
+					box.innerText = NAMES[Math.floor(Math.random() * NAMES.length)]
+				},1000/60);
+			}else {
+				clearInterval(timer);
+			}
+			flag = !flag;
+		};
+	</script>
+</body>
+</html>

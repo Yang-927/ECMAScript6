@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = [{
+				id: 10001,
+				name: "张三",
+				perf: 98,
+				sex: "male"
+			},{
+				id: 10002,
+				name: "李四",
+				perf: 39,
+				sex: "famale"
+			},{
+				id: 10003,
+				name: "王五",
+				perf: 61,
+				sex: "famale"
+			},{
+				id: 10004,
+				name: "狗蛋",
+				perf: 77,
+				sex: "male"
+			},{
+				id: 10005,
+				name: "大锤",
+				perf: 45,
+				sex: "male"
+			},{
+				id: 10006,
+				name: "小明",
+				perf: 17,
+				sex: "male"
+			},{
+				id: 10007,
+				name: "小红",
+				perf: 85,
+				sex: "female"
+			},{
+				id: 10008,
+				name: "小李",
+				perf: 91,
+				sex: "male"
+			},{
+				id: 10007,
+				name: "小刚",
+				perf: 69,
+				sex: "male"
+			},{
+				id: 10010,
+				name: "小刘",
+				perf: 100,
+				sex: "female"
+			}]
+
+	console.log(obj)
+
+	function objToStrMap(obj) {
+		let strMap = new Map();
+		for (let k of Object.keys(obj)) {
+			console.log(k/1+1)
+			strMap.set(k/1+1, obj[k]);
+		}
+		return strMap;
+	}
+
+	let message = objToStrMap(obj)
+	
+
+	// 一共有多少名考生：
+	let howStudent = message.size;
+	console.log(`一共有${howStudent}名考生`);
+
+	// 删除考生五
+	let delFive = message.delete(5);
+	console.log(delFive);
+	console.log(message);
+
+	// 添加11号考生
+	message.set(11,{id: 10011,name: "小林",perf: 70,sex:'female'});
+	console.log(message);
+
+	// 是否存在21号考生
+	if(message.has(21)){
+		console.log("存在21号考生");
+	}else{
+		console.log("不存在21号考生");
+	}
+
+	// 求平均值
+	let size = message.size;
+	console.log([...message.values()]);
+	let ave = [...message.values()].reduce((init,next,index) => {
+		if(index<size -1){
+			return init + next.perf
+		}else{
+			return (init + next.perf) / size;
+		}
+	},0)
+	console.log(`平均成绩是：${ave}分`);
+	let total = 0;
+	for(let v of message.values()){
+		console.log(v.perf);
+		total += v.perf;
+	}
+	let average = total / message.size;
+	console.log(`平均成绩是：${average}分`);
+
+	// 最高成绩和最低成绩
+	
+	
+	let arr = [...message.values()].sort((o1,o2) => o1.perf - o2.perf);
+	console.log(`${arr[arr.length - 1].name}的成绩最高，是${arr[arr.length - 1].perf}分`);
+	console.log(`${arr[0].name}的成绩最低，是${arr[0].perf}分`);
+	let perf = []
+	for(let v of message.values()){
+		perf.push(v.perf);
+	}
+	function getMaxAndMin(args){
+		return {
+			Max:Math.max(...args),
+			Min:Math.min(...args)
+		}
+	}
+	console.log(perf);
+	console.log(getMaxAndMin(perf))
+
+	// 查看编号10的考生
+	console.log(message.get(10).perf)
+	// 把七号考生成绩改为33
+	message.get(7).perf = 33;
+	console.log(message.get(7))
+
+	message.set(7,{...message.get(7),perf:33});
+	console.log(message.get(7))
+	// 男女各有多少人
+	let female = [...message.values()].filter( o => o.sex === 'female').length;
+
+	let male = size - female;
+	console.log(`男的有${male}人，女的有${female}人`);
+
+
+	// 
+	let females = [...message.values()].filter( o => o.sex === 'female').sort((o1,o2) => o1.perf - o2.perf);
+	let males = [...message.values()].filter( o => o.sex === 'male').sort((o1,o2) => o1.perf - o2.perf);
+
+	console.log(females[0].name,females[females.length - 1].name);
+	console.log(males[0].name,males[males.length - 1].name);
+</script>
+</html>]
